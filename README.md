@@ -81,7 +81,7 @@ MVP時点
 フリマアプリ連携 | メルカリAPI / ヤフオクAPI
 
 ### 画面遷移図
-Figma：https://xxxxxxxxxxxx
+Figma：https://www.figma.com/board/i1ToZI3J1WItCh7nO4hAYD/Visily-Export_05-03-2025_11-29?node-id=0-1&t=qv6XDaTyqDPF2MQB-1
 
 ### READMEに記載した機能
 - [ ] ユーザー登録機能
