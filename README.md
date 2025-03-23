@@ -112,3 +112,5 @@ Figma：https://www.figma.com/board/i1ToZI3J1WItCh7nO4hAYD/Visily-Export_05-03-2
 - [ ] カラムの型は記載されているか？
 - [ ] STIは使用しないER図になっているか？
 - [ ] Postsテーブルにpoast_nameのように"テーブル名+カラム名"を付けていないか？
+
+### issue概要
