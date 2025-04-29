@@ -1,11 +1,19 @@
-<!-- app/views/shared/_header.html.erb -->
 <header class="bg-white shadow-md py-4 px-6">
   <div class="container mx-auto flex justify-between items-center">
     <h1 class="text-xl font-bold">MyCloset</h1>
     <nav>
       <%= link_to "ホーム", root_path, class: "text-blue-600 hover:underline mr-4" %>
-      <%= link_to "アイテム一覧", items_path, class: "text-blue-600 hover:underline mr-4" %>
-      <%= link_to "サインイン", new_user_session_path, class: "text-blue-600 hover:underline" %>
+      <%= link_to "アイテム一覧", items_path, class: "text-blue-600 hover:underline" %>
+
+      <% if user_signed_in? %>
+        <!-- サインインしている場合 -->
+        <%= link_to "Hello, #{current_user.email}", edit_user_registration_path, class: "text-blue-600 hover:underline ml-4" %> 
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-blue-600 hover:underline" %>
+      <% else %>
+        <!-- サインインしていない場合 -->
+        <%= link_to "ログイン", new_user_session_path, class: "text-blue-600 hover:underline ml-4" %>
+        <%= link_to "サインアップ", new_user_registration_path, class: "text-blue-600 hover:underline ml-4" %>
+      <% end %>
     </nav>
   </div>
 </header>
