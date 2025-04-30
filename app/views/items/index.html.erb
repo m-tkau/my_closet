@@ -1,0 +1,19 @@
+<h1>アイテム一覧</h1>
+
+<%= link_to '新しいアイテムを登録', new_item_path, class: 'btn btn-primary' %>
+
+<div class="item-list">
+  <% @items.each do |item| %>
+    <div class="item-card">
+      <% if item.photo.attached? %>
+       <%= image_tag item.photo.variant(resize_to_limit: [300, 300], convert: 'jpg') if item.photo.attached? %>
+      <% end %>
+      <p><strong>名前:</strong> <%= item.name %></p>
+      <p><strong>カテゴリ:</strong> <%= item.category %></p>
+      <p><strong>タグ:</strong> <%= item.tag %></p>
+      <p><strong>価格:</strong> <%= item.price %> 円</p>
+      <p><strong>購入日:</strong> <%= item.purchased_at %></p>
+      <p><strong>購入店舗:</strong> <%= item.shop %></p>
+    </div>
+  <% end %>
+</div>
