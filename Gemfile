@@ -38,6 +38,8 @@ gem "bootsnap", require: false
 
 gem 'devise'
 
+gem 'image_processing', '~> 1.2'
+
 gem "importmap-rails" 
 
 group :development, :test do
