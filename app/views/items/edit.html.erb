@@ -1,0 +1,49 @@
+<h2>アイテムを編集</h2>
+
+<%= form_with model: @item, local: true do |form| %>
+  <% if @item.photo.attached? %>
+    <div>
+      <%= image_tag @item.photo.variant(resize_to_limit: [300, 300], convert: 'jpg') %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :photo, '画像変更' %>
+    <%= form.file_field :photo %>
+  </div>
+
+  <div>
+    <%= form.label :name, '名前' %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :category, 'カテゴリ' %>
+    <%= form.text_field :category %>
+  </div>
+
+  <div>
+    <%= form.label :tag, 'タグ' %>
+    <%= form.text_field :tag %>
+  </div>
+
+  <div>
+    <%= form.label :price, '価格 (円)' %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div>
+    <%= form.label :purchased_at, '購入日' %>
+    <%= form.date_field :purchased_at %>
+  </div>
+
+  <div>
+    <%= form.label :shop, '購入店舗' %>
+    <%= form.text_field :shop %>
+  </div>
+
+  <div>
+    <%= form.submit '更新する', class: 'btn btn-primary' %>
+    <%= link_to '戻る', item_path(@item), class: 'btn btn-secondary' %>
+  </div>
+<% end %>

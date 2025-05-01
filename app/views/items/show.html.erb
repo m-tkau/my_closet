@@ -1,0 +1,15 @@
+<h2><%= @item.name %></h2>
+
+<% if @item.photo.attached? %>
+  <%= image_tag @item.photo.variant(resize_to_limit: [300, 300], convert: 'jpg') %>
+<% end %>
+
+<p><strong>カテゴリ:</strong> <%= @item.category %></p>
+<p><strong>タグ:</strong> <%= @item.tag %></p>
+<p><strong>価格:</strong> <%= @item.price %> 円</p>
+<p><strong>購入日:</strong> <%= @item.purchased_at %></p>
+<p><strong>購入店舗:</strong> <%= @item.shop %></p>
+
+<%= button_to '編集', edit_item_path(@item), class: 'btn btn-primary' %>
+<%= button_to '削除', item_path(@item), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
+<%= link_to '戻る', items_path, class: 'btn btn-secondary' %>
