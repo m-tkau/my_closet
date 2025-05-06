@@ -4,6 +4,14 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order(created_at: :desc)
+  
+    if params[:category].present?
+      @items = @items.where(category: params[:category])
+    end
+  
+    if params[:tag].present?
+      @items = @items.where("tag LIKE ?", "%#{params[:tag]}%")
+    end
   end
 
   def show
@@ -17,7 +25,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to items_path, notice: 'アイテムを登録しました！'
+      redirect_to items_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,7 +37,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to item_path(@item), notice: 'アイテムを更新しました！'
+      redirect_to item_path(@item)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -37,7 +45,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to items_path, notice: 'アイテムを削除しました。'
+    redirect_to items_path
   end
 
   private

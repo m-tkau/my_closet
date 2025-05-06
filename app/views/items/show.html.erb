@@ -10,6 +10,6 @@
 <p><strong>購入日:</strong> <%= @item.purchased_at %></p>
 <p><strong>購入店舗:</strong> <%= @item.shop %></p>
 
-<%= button_to '編集', edit_item_path(@item), class: 'btn btn-primary' %>
+<%= link_to '編集', edit_item_path(@item), class: 'btn btn-primary' %>
 <%= button_to '削除', item_path(@item), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
 <%= link_to '戻る', items_path, class: 'btn btn-secondary' %>

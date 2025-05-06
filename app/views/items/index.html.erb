@@ -2,6 +2,21 @@
 
 <%= link_to '新しいアイテムを登録', new_item_path, class: 'btn btn-primary' %>
 
+<h2>検索</h2>
+<%= form_with url: items_path, method: :get, local: true do %>
+  <div>
+    <%= label_tag :category, "カテゴリ検索" %>
+    <%= text_field_tag :category, params[:category], placeholder: "例: アウター" %>
+  </div>
+
+  <div>
+    <%= label_tag :tag, "タグ検索" %>
+    <%= text_field_tag :tag, params[:tag], placeholder: "例: スニーカー" %>
+  </div>
+
+  <%= submit_tag "検索", class: "btn btn-primary" %>
+<% end %>
+
 <!-- スタイルを追加 -->
 <style>
   .item-list {
@@ -30,6 +45,14 @@
   .btn-secondary {
     margin-top: 10px;
     display: inline-block;
+  }
+
+  form {
+    margin: 20px 0;
+  }
+
+  form div {
+    margin-bottom: 10px;
   }
 </style>
 
